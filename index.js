@@ -579,7 +579,7 @@ function dataRow(trendingTable, movies) {
   const descCell = document.createElement('td');
   const titleholder = document.createElement('p');
   const title = document.createElement('b');
-  title.textContent = 'Madame Web';
+  title.textContent = movies.original_title;
   titleholder.appendChild(title);
   descCell.appendChild(titleholder);
 
@@ -600,7 +600,7 @@ function renderTrendingSection(movies) {
 
   imageRow(trendingTable, movies);
 
-  dataRow(trendingTable, movies);
+  // dataRow(trendingTable, movies);
   const main = document.getElementsByTagName('main')[0];
   main.appendChild(trendingTable);
 }
