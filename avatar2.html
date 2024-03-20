@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies Database</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="heading">Welcome to the Movie Database</h1>
+      <p id="subtitle">Your home to the movies you love.</p>
+      <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="/top250">Top 250 Movies</a>
+        <a href="/avatar.html">Avatar</a>
+      </nav>
+    </header>
+    <div class="movie-details-wrapper">
+      <table class="movie-details">
+        <tr>
+          <td rowspan="6">
+            <img
+              src="https://www.themoviedb.org/t/p/w1280/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
+              width="300"
+              srcset=""
+              class="movie-image"
+            />
+          </td>
+          <td colspan="2" class="movie-title">
+            <b>Avatar</b> (2009)
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="movie-release-date">2009-12-18</td>
+        </tr>
+        <tr>
+          <td><b>Rating</b> <span class="rating-value">76%</span></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <b>Overview</b>
+            <br />
+            In the 22nd century, a paraplegic Marine is dispatched to the moon
+            Pandora on a unique mission, but becomes torn between following orders
+            and protecting an alien civilization.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>James Cameron</b>
+            <br />
+              Director, Writer
+          </td>
+  
+        </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+      </table>
+    </div>
+
+    <style>
+      
+      .movie-image{
+        border-radius: 5px;
+        padding-right: 5px;
+      }
+      nav{
+        background-color: black;
+        text-align: center;
+        padding: 10px;
+      }
+      #navbar > a{
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+      }
+      #navbar > a:hover{
+        color: grey;
+        text-decoration: underline;
+      }
+      body{
+        margin: 0;
+      }
+      #heading,#subtitle{
+        margin-left: 10px;
+      }
+      .movie-details-wrapper{
+        background-image: url(https://www.themoviedb.org/t/p/w1280/kyeqWdyUXW608qlYkRqosgbbJyK.jpg);
+
+              }
+      .movie-details{
+        width: 100%;
+        padding: 5% 20%;
+        background: linear-gradient(to bottom right, rgba(31.5, 10.5, 10.5, 1), rgba(31.5, 10.5, 10.5, 0.84));
+        color:white;
+        font-size:1.2em
+      }
+      html{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      .movie-image{
+        margin-right: 10px;
+      }
+      .movie-title{
+        text-shadow: 1px 1px 4px white;
+        font-size: 3vw;
+        font-style: italic;
+    font-weight: 500
+      }
+    </style>
+  </body>
+</html>

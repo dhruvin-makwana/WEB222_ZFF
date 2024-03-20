@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The movie database</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -23,14 +24,7 @@
       <a href="/about.html">About</a>
       <a href="/privacy-policy.html">Privacy policy</a>
     </footer>
-    <script src="/index.js"></script>
-    <script>
-      const linktag=document.getElementById("avatar-link");
-      linktag.addEventListener("click",function (e) {
-        e.preventDefault()
-        console.log("Clicked link")
-        
-      })
-    </script>
+    <script src="/dynamic_rendering/js/data.js"></script>
+    <script src="/dynamic_rendering/js/index.js"></script>
   </body>
 </html>
