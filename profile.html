@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The movie database</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1 id="heading">Welcome to the Movie Database</h1>
+      <p id="subtitle">Your home to the movies you love.</p>
+      <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="/top250">Top 250 Movies</a>
+        <a  href="/profile.html">Profile</a>
+      </nav>
+    </header>
+    <style>
+      fieldset {
+        margin-bottom: 15px;
+      }
+      #personal-info label {
+        width: 90px;
+        display: inline-block;
+      }
+      fieldset div{
+        margin-bottom: 15px;
+      }
+      input[type="submit"]{
+        padding: 10px;
+        font-size: large;
+      }
+      label+input{
+        padding: 10px;
+      }
+    </style>
+    <main>
+      <form action="/profile" method="get">
+        <fieldset id="personal-info">
+          <h3>Enter your personal details:</h3>
+          <input type="hidden" name="lang" value="en" />
+          <div>
+            <label for="firstname" > First name:</label>
+            <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              placeholder="Enter your first name"
+              autofocus
+              tabindex="1"
+            />
+          </div>
+          <div>
+            <label for="lastname"> Last name:</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Enter your last name"
+              required
+              
+            />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email id" tabindex="2" required/>
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Update your password"
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <h3>Sharing settings</h3>
+          <div>
+            <input type="checkbox" name="newsletter" id="newsletter" />
+            <label for="newsletter">
+              Do you want to subscribe to our newsletter?</label
+            >
+          </div>
+          <div>
+            <span> Share watchlist publicly?</span>
+            <input type="radio" name="watchlist" id="watchlist-yes" />
+            <label for="watchlist-yes"> Yes</label>
+            <input type="radio" name="watchlist" id="watchlist-no" />
+            <label for="watchlist-no">No</label>
+          </div>
+        </fieldset>
+
+        <input type="submit" value="Save" />
+      </form>
+    </main>
+    <footer>
+      <a href="/about.html">About</a>
+      <a href="/privacy-policy.html">Privacy policy</a>
+    </footer>
+  </body>
+</html>
