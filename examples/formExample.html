@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Long HTML Form</title>
+    <style>
+      #errors {
+        color: red;
+      }
+      form{
+        margin-bottom: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Long HTML Form Example</h2>
+
+    <form action="#" method="GET">
+      <div id="errors"></div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"  required /><br /><br />
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" /><br /><br />
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea><br /><br />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" /><br /><br />
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" /><br /><br />
+
+      <label for="interests">Interests:</label><br />
+      <input type="checkbox" id="interest1" name="interest1" value="coding" />
+      <label for="interest1">Coding</label><br />
+      <input type="checkbox" id="interest2" name="interest2" value="reading" />
+      <label for="interest2">Reading</label><br />
+      <input
+        type="checkbox"
+        id="interest3"
+        name="interest3"
+        value="traveling"
+      />
+      <label for="interest3">Traveling</label><br /><br />
+
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file" /><br /><br />
+
+      <label for="comments">Comments:</label><br />
+      <textarea id="comments" name="comments"></textarea><br /><br />
+
+      <label for="comments">Social:</label><br />
+      <input type="url" id="social" name="social" placeholder="https://......"/><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+  <script>
+    let searchParams = new URLSearchParams(window.location.search);
+    let errorbox = document.getElementById("errors");
+    let invalid = false;
+    let datereg = new RegExp("\d{1,2}\/\d{1,2}\/\d{2,4}");
+    let phonereg = new RegExp("\d{3}-\d{3}-\d{4}");
+    let socialreg = new RegExp("https://.*");
+    function validateEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    }
+    for (let searchParam of searchParams) {
+      // if (!searchParam[1]){
+      let p = document.createElement("p");
+      if (
+        searchParam[0] === "dob" &&
+        searchParam[1] !== "" &&
+        !datereg.test(searchParam[1])
+      ) {
+        p.textContent = `Invalid format for ${searchParam[0]}`;
+      } else if (
+        searchParam[0] === "phone" &&
+        searchParam[1] !== "" &&
+        !phonereg.test(searchParam[1])
+      ) {
+        p.textContent = `Invalid format for ${searchParam[0]}`;
+      } else if (
+        searchParam[0] === "social" &&
+        searchParam[1] !== "" &&
+        !socialreg.test(searchParam[1])
+      ) {
+        p.textContent = `Invalid format for ${searchParam[0]}`;
+      } else if (
+        searchParam[0] === "email" &&
+        searchParam[1] !== "" &&
+        !validateEmail(searchParam[1])
+      ) {
+        p.textContent = `Invalid format for ${searchParam[0]}`;
+      }  else if (searchParam[1] === "") {
+        p.textContent = `${searchParam[0]} Cannot be empty`;
+      }
+      errorbox.appendChild(p);
+      invalid = true;
+      // }
+    }
+  </script>
+</html>

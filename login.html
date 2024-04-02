@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The movie database</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+        form{
+            font: 20px sans-serif;
+            background-color: rgba(203, 203, 203, 0.373);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        form div{
+            margin-top: 10px;
+        }
+        form label {
+            font-size: 1em;
+
+        }
+        input{
+            box-sizing: border-box;
+        }
+        input[type="text"],[type="password"]{
+            border-radius: 3px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+
+        }
+        input[type="submit"]{
+            margin-top: 10px;
+            background-color: black;
+            color: white;
+            width: 100%;
+            padding:10px
+        }
+        #remember-label{
+            font-size: 0.7em;
+        }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 id="heading">Welcome to the Movie Database</h1>
+      <p id="subtitle">Your home to the movies you love.</p>
+      <nav id="navbar">
+        <a href="/">Home</a>
+        <a href="/top250">Top 250 Movies</a>
+        <a href="/profile.html">Profile</a>
+      </nav>
+    </header>
+    <style>
+
+    </style>
+    <main>
+      <form action="/login.html" method="post">
+        <h2>Login</h2>
+        <div>
+          <label for="username">Username</label><br />
+          <input type="text" value="" id="username" />
+        </div>
+        <div>
+          <label for="password">Password</label> <br />
+          <input type="password" value="" id="password" />
+        </div>
+        <div>
+            <input type="checkbox" value="" id="remember" />
+            <label for="password" id="remember-label">Remember me?</label> <br />
+          </div>
+        <input type="submit" value="Submit">
+      </form>
+    </main>
+    <footer class="footer">
+      <a href="/about.html">About</a>
+      <a href="/privacy-policy.html">Privacy policy</a>
+    </footer>
+  </body>
+</html>

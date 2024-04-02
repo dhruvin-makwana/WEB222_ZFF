@@ -14,7 +14,7 @@
       <nav id="navbar">
         <a href="/">Home</a>
         <a href="/top250">Top 250 Movies</a>
-        <a  href="/profile.html">Profile</a>
+        <a href="/profile.html">Profile</a>
       </nav>
     </header>
     <style>
@@ -25,24 +25,24 @@
         width: 90px;
         display: inline-block;
       }
-      fieldset div{
+      fieldset div {
         margin-bottom: 15px;
       }
-      input[type="submit"]{
+      input[type="submit"] {
         padding: 10px;
         font-size: large;
       }
-      label+input{
+      label + input,label + select {
         padding: 10px;
       }
     </style>
     <main>
-      <form action="/profile" method="get">
+      <form action="/profile" method="get" name="profile-form" id="profile">
         <fieldset id="personal-info">
           <h3>Enter your personal details:</h3>
           <input type="hidden" name="lang" value="en" />
           <div>
-            <label for="firstname" > First name:</label>
+            <label for="firstname"> First name:</label>
             <input
               type="text"
               name="firstname"
@@ -60,12 +60,26 @@
               id="lastname"
               placeholder="Enter your last name"
               required
-              
             />
           </div>
           <div>
+            <label for="country"> Country:</label>
+            <select name="country" id="country">
+              <option disabled selected value>   ----- select an option -----   </option>
+              <option value="ca">Canada</option>
+              <option value="fr">France</option>
+              <option value="us">USA</option>
+            </select>
+          </div>
+          <div>
             <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email id" tabindex="2" required/>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email id"
+              tabindex="2"
+              required
+            />
           </div>
           <div>
             <label for="password">Password:</label>
@@ -75,9 +89,27 @@
               placeholder="Update your password"
             />
           </div>
+          <div>
+            <label for="repassword">Confirm Password:</label>
+            <input
+              type="password"
+              id="repassword"
+              placeholder="Update your password"
+            />
+          </div>
         </fieldset>
         <fieldset>
-          <h3>Sharing settings</h3>
+          <h3>Profile settings</h3>
+          <div>
+            <label for="description"> Description</label>
+            <br/>
+            <textarea
+              name="description"
+              id="description"
+              cols="50"
+              rows="10"
+            ></textarea>
+          </div>
           <div>
             <input type="checkbox" name="newsletter" id="newsletter" />
             <label for="newsletter">
@@ -96,6 +128,15 @@
         <input type="submit" value="Save" />
       </form>
     </main>
+    <script>
+      let form=document.forms['profile-form']
+      form.onsubmit=function(){
+        let firstname=form.firstname
+        console.log(firstname.value)
+        return true
+      }
+      console.log(form)
+    </script>
     <footer>
       <a href="/about.html">About</a>
       <a href="/privacy-policy.html">Privacy policy</a>
