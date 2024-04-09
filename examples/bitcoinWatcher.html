@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <span>Bitcoin Price:</span><span id="trend"></span><span id="price"></span>
+    <script>
+      // on page load make request to api
+      // on response update the content of node #price
+      // repeat steps
+      function updatePrice(newprice) {
+        let price = newprice;
+        console.log(price);
+        let priceElm=document.getElementById("price");
+        priceElm.textContent=price
+        setTimeout(getCurrentValue,1000)
+      }
+      function getCurrentValue() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          updatePrice(this.responseText);
+        };
+        xhr.open("GET", "http://localhost:8001/api");
+        xhr.send();
+      }
+      window.onload = function () {
+        getCurrentValue();
+      };
+    </script>
+  </body>
+</html>

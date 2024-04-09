@@ -1,0 +1,18 @@
+{
+  "name": "the-movie-database",
+  "version": "1.0.0",
+  "description": "This repo contains code written in HTML, CSS, and JS for the website which lists inforamtion about movies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-bc": "node server.js",
+    "start-movie": "npx json-server data.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "json-server": "^0.17.4"
+  }
+}
