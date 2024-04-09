@@ -5,6 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The movie database</title>
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      #search {
+        width: calc(100% - 30px);
+        border-radius: 20px;
+        border: 2px solid black;
+        padding: 14px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      #search-results {
+        margin-top: 10px;
+      }
+      .search-result img {
+        width: 150px;
+        margin-right: 10px;
+      }
+      .search-result {
+        display: flex;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 10px;
+        width: calc(100% - 11px);
+      }
+      .search-result .title {
+        font-size: large;
+        display: block;
+        height: 20px;
+        font-weight: bold;
+      }
+      .search-result .date {
+        font-size: large;
+        display: block;
+        height: 20px;
+        font-weight: bold;
+      }
+      .search-result .rating {
+        font-size: large;
+        display: block;
+        height: 20px;
+        font-weight: bold;
+      }
+      .search-result .overview {
+        display: block;
+        height: 20px;
+        font-style: italic;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,14 +65,56 @@
       </nav>
     </header>
     <main>
-      <h3 id="search-result-heading"></h3>
-      <table id="search-table"></table>
+      <input type="text" id="search" placeholder="Enter Movie name...." />
+      <div id="search-results">
+        <div class="search-result">
+          <div class="image">
+            <img
+              src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <div class="information">
+            <span class="title">Avatar</span> <br />
+            <span class="rating">7.2</span><br />
+            <span class="date">10-12-2009</span><br />
+            <span class="overview">In the 22nd century.............</span>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
       <a href="/about.html">About</a>
       <a href="/privacy-policy.html">Privacy policy</a>
     </footer>
-    <script src="/js/data.js"></script>
-    <script src="/js/search.js"></script>
+    <script>
+      let searchbar = document.getElementById("search");
+      searchbar.addEventListener("keyup", function (e) {
+        // 1. Create a new instance of an XMLHttpRequest Object using its constructor
+        var xhr = new XMLHttpRequest();
+
+        // 2. Define an event handler for the `load` event, which happens when data arrives
+        xhr.onload = function () {
+          console.log("______________________________")
+          // 3. Get the data from the `xhr` object's `responseText` property
+          let results = this.responseText;
+          results=JSON.parse(results)
+          let searchResults= document.getElementById("search-results")
+          for (const movie of results) {
+            console.log(movie.title)
+          }
+
+        };
+
+        // 4. Create an HTTP GET request to the given URL
+        xhr.open("GET", "http://localhost:3000/movies?original_title_like="+e.target.value);
+
+        // 5. Send the HTTP request to the server, and wait asynchronously for the reply
+        xhr.send();
+      });
+    </script>
+    <!-- <script src="/js/data.js"></script>
+    <script src="/js/search.js"></script> -->
   </body>
 </html>
