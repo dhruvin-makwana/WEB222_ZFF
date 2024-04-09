@@ -17,7 +17,7 @@ app.get('/movies', (req, res) => {
   }
 });
 
-app.get('/trending', (req, res) => {
+app.get('/suggestions', (req, res) => {
   const random = data.movies
       .sort(() => Math.random() - Math.random())
       .slice(0, 5);
