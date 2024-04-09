@@ -108,7 +108,7 @@
         };
 
         // 4. Create an HTTP GET request to the given URL
-        xhr.open("GET", "http://localhost:3000/movies?original_title_like="+e.target.value);
+        xhr.open("GET", "http://localhost:8001/movies?original_title_like="+e.target.value);
 
         // 5. Send the HTTP request to the server, and wait asynchronously for the reply
         xhr.send();

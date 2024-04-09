@@ -51,6 +51,7 @@
               autofocus
               tabindex="1"
             />
+            <span id="firstname-err"></span>
           </div>
           <div>
             <label for="lastname"> Last name:</label>
@@ -59,7 +60,6 @@
               name="lastname"
               id="lastname"
               placeholder="Enter your last name"
-              required
             />
           </div>
           <div>
@@ -78,7 +78,6 @@
               id="email"
               placeholder="Enter your email id"
               tabindex="2"
-              required
             />
           </div>
           <div>
@@ -131,9 +130,19 @@
     <script>
       let form=document.forms['profile-form']
       form.onsubmit=function(){
+        let fnameErr=document.getElementById("firstname-err")
+
         let firstname=form.firstname
-        console.log(firstname.value)
-        return true
+        if(firstname.value.length<1||firstname.value.length>15){
+          fnameErr.textContent="Firstname should have length between 1 to 15"
+          return false
+        }
+        let reg=new RegExp("[a-zA-Z]+")
+        if(!reg.test(firstname.value)){
+          fnameErr.textContent="Firstname can only contain alphabet."
+          return false
+        }
+
       }
       console.log(form)
     </script>

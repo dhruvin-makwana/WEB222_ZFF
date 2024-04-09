@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-bc": "node server.js",
-    "start-movie": "npx json-server data.json"
+    "start-bitcoin": "node server-bc.js",
+    "start-movie":"node server-movie.js"
   },
   "author": "",
   "license": "ISC",
