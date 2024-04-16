@@ -27,6 +27,7 @@
         padding: 5px;
         border-radius: 10px;
         width: calc(100% - 11px);
+        margin-bottom: 10px;
       }
       .search-result .title {
         font-size: large;
@@ -67,21 +68,6 @@
     <main>
       <input type="text" id="search" placeholder="Enter Movie name...." />
       <div id="search-results">
-        <div class="search-result">
-          <div class="image">
-            <img
-              src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
-              alt=""
-              srcset=""
-            />
-          </div>
-          <div class="information">
-            <span class="title">Avatar</span> <br />
-            <span class="rating">7.2</span><br />
-            <span class="date">10-12-2009</span><br />
-            <span class="overview">In the 22nd century.............</span>
-          </div>
-        </div>
       </div>
     </main>
     <footer>
@@ -91,27 +77,144 @@
     <script>
       let searchbar = document.getElementById("search");
       searchbar.addEventListener("keyup", function (e) {
-        // 1. Create a new instance of an XMLHttpRequest Object using its constructor
-        var xhr = new XMLHttpRequest();
+        // // 1. Create a new instance of an XMLHttpRequest Object using its constructor
+        // var xhr = new XMLHttpRequest();
 
-        // 2. Define an event handler for the `load` event, which happens when data arrives
-        xhr.onload = function () {
-          console.log("______________________________")
-          // 3. Get the data from the `xhr` object's `responseText` property
-          let results = this.responseText;
-          results=JSON.parse(results)
-          let searchResults= document.getElementById("search-results")
-          for (const movie of results) {
-            console.log(movie.title)
-          }
+        // // 2. Define an event handler for the `load` event, which happens when data arrives
+        // xhr.onload = function () {
+        //   console.log("______________________________")
+        //   // 3. Get the data from the `xhr` object's `responseText` property
+        //   let results = this.responseText;
+        //   results=JSON.parse(results)
+        //   let searchResults= document.getElementById("search-results")
+        //   let existingResults=document.querySelectorAll(".search-result")
+        //   for (let existingResult of existingResults){
+        //     searchResults.removeChild(existingResult)
+        //   }
+        //   // for each result generate a div displaying details
+        //   // append each one to the container that should hold our results
+        //   for (const movie of results) {
+        //       let searchResult= document.createElement("div")
+        //       searchResult.classList.add("search-result")
+        //       let imageContainer=document.createElement("div")
+        //       imageContainer.classList.add("image")
+        //       let image= document.createElement("img")
+        //       image.src=movie.image
+        //       imageContainer.appendChild(image)
+        //       searchResult.appendChild(imageContainer)
 
-        };
+        //       let information=document.createElement("div")
+        //       information.classList.add("information")
+        //       let br1=document.createElement("br")
 
-        // 4. Create an HTTP GET request to the given URL
-        xhr.open("GET", "http://localhost:8001/movies?original_title_like="+e.target.value);
+        //       let title=document.createElement("span")
+        //       title.classList.add("title")
+        //       title.textContent=movie.original_title
+              
+        //       let br2=document.createElement("br")
+        //       let rating=document.createElement("span")
+        //       rating.classList.add("rating")
+        //       rating.textContent=movie.vote_average
 
-        // 5. Send the HTTP request to the server, and wait asynchronously for the reply
-        xhr.send();
+        //       let br3=document.createElement("br")
+        //       let date=document.createElement("span")
+        //       date.classList.add("date")
+        //       date.textContent=movie.release_date
+
+        //       let br4=document.createElement("br")
+        //       let overview=document.createElement("span")
+        //       overview.classList.add("overview")
+        //       overview.textContent=movie.overview
+
+        //       information.appendChild(title)
+        //       information.appendChild(br1)
+        //       information.appendChild(rating)
+        //       information.appendChild(br2)
+        //       information.appendChild(date)
+        //       information.appendChild(br3)
+        //       information.appendChild(overview)
+              
+              
+              
+        //       searchResult.appendChild(information)
+        //       searchResults.appendChild(searchResult)
+        //   }
+
+        // };
+
+        // // 4. Create an HTTP GET request to the given URL
+        // xhr.open("GET", "http://localhost:8001/movies?original_title_like="+e.target.value);
+
+        // // 5. Send the HTTP request to the server, and wait asynchronously for the reply
+        // xhr.send();
+
+        fetch("http://localhost:8001/movies?original_title_like="+e.target.value)
+        .then(function(results){
+          console.log(results)
+            console.log("______________________________")
+            results.json().then(function(data){
+
+              console.log(data)
+            })
+          // // 3. Get the data from the `xhr` object's `responseText` property
+          // let results = this.responseText;
+          // results=JSON.parse(results)
+          // let searchResults= document.getElementById("search-results")
+          // let existingResults=document.querySelectorAll(".search-result")
+          // for (let existingResult of existingResults){
+          //   searchResults.removeChild(existingResult)
+          // }
+          // // for each result generate a div displaying details
+          // // append each one to the container that should hold our results
+          // for (const movie of results) {
+          //     let searchResult= document.createElement("div")
+          //     searchResult.classList.add("search-result")
+          //     let imageContainer=document.createElement("div")
+          //     imageContainer.classList.add("image")
+          //     let image= document.createElement("img")
+          //     image.src=movie.image
+          //     imageContainer.appendChild(image)
+          //     searchResult.appendChild(imageContainer)
+
+          //     let information=document.createElement("div")
+          //     information.classList.add("information")
+          //     let br1=document.createElement("br")
+
+          //     let title=document.createElement("span")
+          //     title.classList.add("title")
+          //     title.textContent=movie.original_title
+              
+          //     let br2=document.createElement("br")
+          //     let rating=document.createElement("span")
+          //     rating.classList.add("rating")
+          //     rating.textContent=movie.vote_average
+
+          //     let br3=document.createElement("br")
+          //     let date=document.createElement("span")
+          //     date.classList.add("date")
+          //     date.textContent=movie.release_date
+
+          //     let br4=document.createElement("br")
+          //     let overview=document.createElement("span")
+          //     overview.classList.add("overview")
+          //     overview.textContent=movie.overview
+
+          //     information.appendChild(title)
+          //     information.appendChild(br1)
+          //     information.appendChild(rating)
+          //     information.appendChild(br2)
+          //     information.appendChild(date)
+          //     information.appendChild(br3)
+          //     information.appendChild(overview)
+              
+              
+              
+          //     searchResult.appendChild(information)
+          //     searchResults.appendChild(searchResult)
+          // }
+        }).catch(function(err){
+          console.log(err)
+        })
       });
     </script>
     <!-- <script src="/js/data.js"></script>

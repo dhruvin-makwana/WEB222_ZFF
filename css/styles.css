@@ -138,13 +138,13 @@ main {
   background-image: url(/assets/homepage-image.jpg);
   background-size: cover;
 }
-#trending-section {
+#trending-section,#suggestions-section {
   display: flex;
 }
 
-#trending-section img {
+#trending-section img, #suggestions-section img {
   width: 100%;
 }
-#trending-section .trending-movie {
+#trending-section .trending-movie,#suggestions-section .trending-movie{
   padding: 10px;
 }
